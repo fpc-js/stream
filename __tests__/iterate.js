@@ -19,5 +19,5 @@ test('iterate creates finite streams with a stop condition', () =>
 );
 
 test('iterate applies the index to its function', () =>
-  expect(iterate((_, idx) => (idx < 3 ? idx : null)).toArray()).toEqual([0, 1, 2])
+  expect(iterate((_, i) => (i < 3 ? i : null)).toArray()).toEqual([0, 1, 2])
 );

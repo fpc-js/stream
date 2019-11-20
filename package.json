@@ -1,6 +1,6 @@
 {
   "name": "@fpc/stream",
-  "description": "Streams for moder",
+  "description": "Streams for modern javascript",
   "version": "0.0.1",
   "author": "Emiliano Bovetti <emiliano.bovetti@gmail.com>",
   "license": "GPL-3.0",

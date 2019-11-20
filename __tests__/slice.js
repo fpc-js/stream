@@ -7,6 +7,16 @@ const zero = range(0, 0);
 const zeroOne = range(0, 1);
 const zeroToTen = range(0, 10);
 
+test('slice method accepts integer indexes', () => {
+  const num = new Error('Expected integer, got number');
+
+  expect(() => empty.slice(0.1)).toThrow(num);
+  expect(() => empty.slice(0.1, 0)).toThrow(num);
+  expect(() => empty.slice(0, 0.1)).toThrow(num);
+
+  expect(empty.slice(1, Infinity).toArray()).toEqual([]);
+});
+
 test('stream.slice() works on empty streams', () => {
   expect(empty.slice(0, 0).toArray()).toEqual([]);
   expect(empty.slice(0, 1).toArray()).toEqual([]);
