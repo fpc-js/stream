@@ -1,0 +1,58 @@
+{
+  "name": "@fpc/stream",
+  "description": "Streams for moder",
+  "version": "0.0.1",
+  "author": "Emiliano Bovetti <emiliano.bovetti@gmail.com>",
+  "license": "GPL-3.0",
+  "keywords": [
+    "functional",
+    "collection",
+    "stream",
+    "fpc",
+    "fp"
+  ],
+  "type": "module",
+  "main": "./src/index",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpc-js/stream.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fpc-js/stream/issues"
+  },
+  "release": {
+    "branch": "master",
+    "prepare": [
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "src/*.js"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    "publish": [
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
+  "dependencies": {
+    "@fpc/types": "^0.0.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/runtime": "^7.7.2",
+    "babel-jest": "^24.9.0",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.3.0",
+    "jest": "^24.9.0"
+  }
+}
