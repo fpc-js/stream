@@ -1,3 +1,4 @@
+import { expectFunction } from '@fpc/types';
 import { Stream } from './Stream';
 
 /* eslint-disable-next-line func-style */
@@ -16,4 +17,4 @@ function *iterateGenerator (fn, initial) {
 }
 
 export const iterate = (fn, initial) =>
-  new Stream(iterateGenerator, fn, initial);
+  Stream(() => iterateGenerator(expectFunction(fn), initial));
