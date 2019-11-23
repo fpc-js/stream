@@ -23,6 +23,7 @@ test('stream.slice() works on empty streams', () => {
   expect(empty.slice(1, 0).toArray()).toEqual([]);
 });
 
+/* eslint-disable-next-line max-statements */
 test('stream.slice() works streams', () => {
   expect(zero.slice(0, 1).toArray()).toEqual([0]);
 

@@ -1,5 +1,6 @@
 import { getIterator, empty } from './internals';
 
+/* eslint-disable-next-line max-statements */
 export const reduce = (iterable, fn, initial) => {
   const iterator = getIterator(iterable);
 

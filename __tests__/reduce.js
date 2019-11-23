@@ -28,21 +28,23 @@ test('reduce method works on streams', () =>
   expect(zeroToTen.reduce((x, y) => x + y)).toBe(55)
 );
 
-test('reduce method respects Array.prototype.reduce interface', () => {
-  const fn1 = jest.fn((x, y) => x + y);
+test('stream.reduce(fn) respects Array.prototype.reduce interface', () => {
+  const fn = jest.fn((x, y) => x + y);
 
-  expect(oneToFour.reduce(fn1)).toBe(10);
-  expect(fn1.mock.calls.length).toBe(3);
-  expect(fn1.mock.calls[0]).toEqual([1, 2, 1, oneToFour]);
-  expect(fn1.mock.calls[1]).toEqual([3, 3, 2, oneToFour]);
-  expect(fn1.mock.calls[2]).toEqual([6, 4, 3, oneToFour]);
+  expect(oneToFour.reduce(fn)).toBe(10);
+  expect(fn.mock.calls.length).toBe(3);
+  expect(fn.mock.calls[0]).toEqual([1, 2, 1, oneToFour]);
+  expect(fn.mock.calls[1]).toEqual([3, 3, 2, oneToFour]);
+  expect(fn.mock.calls[2]).toEqual([6, 4, 3, oneToFour]);
+});
 
-  const fn2 = jest.fn((x, y) => x + y);
+test('stream.reduce(fn, def) respects reduce interface too', () => {
+  const fn = jest.fn((x, y) => x + y);
 
-  expect(twoToFive.reduce(fn2, 1)).toBe(15);
-  expect(fn2.mock.calls.length).toBe(4);
-  expect(fn2.mock.calls[0]).toEqual([1, 2, 0, twoToFive]);
-  expect(fn2.mock.calls[1]).toEqual([3, 3, 1, twoToFive]);
-  expect(fn2.mock.calls[2]).toEqual([6, 4, 2, twoToFive]);
-  expect(fn2.mock.calls[3]).toEqual([10, 5, 3, twoToFive]);
+  expect(twoToFive.reduce(fn, 1)).toBe(15);
+  expect(fn.mock.calls.length).toBe(4);
+  expect(fn.mock.calls[0]).toEqual([1, 2, 0, twoToFive]);
+  expect(fn.mock.calls[1]).toEqual([3, 3, 1, twoToFive]);
+  expect(fn.mock.calls[2]).toEqual([6, 4, 2, twoToFive]);
+  expect(fn.mock.calls[3]).toEqual([10, 5, 3, twoToFive]);
 });
