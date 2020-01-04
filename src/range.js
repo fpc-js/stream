@@ -11,4 +11,4 @@ function *rangeGenerator (start, end, step) {
 }
 
 export const range = (start = 0, end = Infinity, step = 1) =>
-  new Stream(() => rangeGenerator(start, end, step));
+  new Stream(rangeGenerator, start, end, step);
