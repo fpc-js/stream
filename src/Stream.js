@@ -8,7 +8,7 @@ import { sliceGenerator } from './sliceGenerator';
 
 /* global Symbol */
 
-class Ctor {
+export class Stream {
   constructor (generator, ...args) {
     expectFunction(generator);
 
@@ -18,15 +18,15 @@ class Ctor {
   }
 
   filter (fn) {
-    return new Ctor(filterGenerator, this, expectFunction(fn));
+    return new Stream(filterGenerator, this, expectFunction(fn));
   }
 
   forEach (fn) {
-    return new Ctor(forEachGenerator, this, expectFunction(fn));
+    return new Stream(forEachGenerator, this, expectFunction(fn));
   }
 
   map (fn) {
-    return new Ctor(mapGenerator, this, expectFunction(fn));
+    return new Stream(mapGenerator, this, expectFunction(fn));
   }
 
   reduce (fn, ...args) {
@@ -50,14 +50,10 @@ class Ctor {
       return this.toArray().slice(begin, end);
     }
 
-    return new Ctor(sliceGenerator, this, begin, end);
+    return new Stream(sliceGenerator, this, begin, end);
   }
 
   toArray () {
     return Array.from(this);
   }
 }
-
-export const Stream = generator => new Ctor(generator);
-
-Stream.prototype = Ctor.prototype;

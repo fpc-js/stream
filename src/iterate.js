@@ -17,4 +17,4 @@ function *iterateGenerator (fn, initial) {
 }
 
 export const iterate = (fn, initial) =>
-  Stream(() => iterateGenerator(expectFunction(fn), initial));
+  new Stream(() => iterateGenerator(expectFunction(fn), initial));
