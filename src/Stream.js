@@ -1,5 +1,6 @@
 import { expectFunction, expectInteger } from '@fpc/types';
 import { empty } from './internals';
+import { consume } from './consume';
 import { filterGenerator } from './filterGenerator';
 import { forEachGenerator } from './forEachGenerator';
 import { mapGenerator } from './mapGenerator';
@@ -51,6 +52,10 @@ export class Stream {
     }
 
     return new Stream(sliceGenerator, this, begin, end);
+  }
+
+  consume () {
+    return consume(this);
   }
 
   toArray () {

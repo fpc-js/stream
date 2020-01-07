@@ -6,7 +6,7 @@ const empty = range(1, 0);
 const zero = range(0, 0);
 const oneToThree = range(1, 3);
 
-test('range(1, 0).forEach(x => x + 1) = [0]', () =>
+test('range(0, 0).forEach(x => x + 1) = [0]', () =>
   expect(zero.forEach(x => x + 1).toArray()).toEqual([0])
 );
 
