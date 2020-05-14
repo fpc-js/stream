@@ -1,6 +1,8 @@
-import { iterate } from '../src';
+import Stream from '../src';
 
 /* eslint-disable no-magic-numbers */
+
+const { iterate } = Stream;
 
 test('iterate initial value is undefined by default', () =>
   expect(iterate(x => x).toArray()).toEqual([])

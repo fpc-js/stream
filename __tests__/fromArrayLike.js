@@ -1,6 +1,8 @@
-import { fromArrayLike } from '../src';
+import Stream from '../src';
 
 /* eslint-disable no-magic-numbers */
+
+const { fromArrayLike } = Stream;
 
 test('fromArrayLike({ length: 0 }) is an empty stream', () =>
   expect(fromArrayLike({ length: 0 }).toArray()).toEqual([])

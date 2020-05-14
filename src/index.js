@@ -1,5 +1,11 @@
-export * from './Stream';
-export * from './fromArrayLike';
-export * from './fromIterable';
-export * from './iterate';
-export * from './range';
+import { fromArrayLike } from './fromArrayLike';
+import { fromIterable } from './fromIterable';
+import { iterate } from './iterate';
+import { range } from './range';
+
+export default {
+  fromArrayLike,
+  fromIterable,
+  iterate,
+  range,
+};

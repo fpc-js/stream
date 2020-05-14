@@ -1,7 +1,8 @@
-import { range } from '../src';
+import Stream from '../src';
 
 /* eslint-disable no-magic-numbers */
 
+const { range } = Stream;
 const empty = range(1, 0);
 const zero = range(0, 0);
 const oneToFour = range(1, 4);

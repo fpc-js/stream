@@ -1,6 +1,8 @@
-import { fromIterable } from '../src';
+import Stream from '../src';
 
 /* eslint-disable no-magic-numbers */
+
+const { fromIterable } = Stream;
 
 test('fromIterable([]) is an empty stream', () =>
   expect(fromIterable([]).toArray()).toEqual([])

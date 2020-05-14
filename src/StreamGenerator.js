@@ -9,7 +9,7 @@ import { sliceGenerator } from './sliceGenerator';
 
 /* global Symbol */
 
-export class Stream {
+export class StreamGenerator {
   constructor (generator, ...args) {
     expectFunction(generator);
 
@@ -19,15 +19,15 @@ export class Stream {
   }
 
   filter (fn) {
-    return new Stream(filterGenerator, this, expectFunction(fn));
+    return new StreamGenerator(filterGenerator, this, expectFunction(fn));
   }
 
   forEach (fn) {
-    return new Stream(forEachGenerator, this, expectFunction(fn));
+    return new StreamGenerator(forEachGenerator, this, expectFunction(fn));
   }
 
   map (fn) {
-    return new Stream(mapGenerator, this, expectFunction(fn));
+    return new StreamGenerator(mapGenerator, this, expectFunction(fn));
   }
 
   reduce (fn, ...args) {
@@ -51,7 +51,7 @@ export class Stream {
       return this.toArray().slice(begin, end);
     }
 
-    return new Stream(sliceGenerator, this, begin, end);
+    return new StreamGenerator(sliceGenerator, this, begin, end);
   }
 
   consume () {

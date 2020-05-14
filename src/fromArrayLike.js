@@ -1,5 +1,5 @@
 import { expectObject, expectInteger } from '@fpc/types';
-import { Stream } from './Stream';
+import { StreamGenerator } from './StreamGenerator';
 
 /* eslint-disable-next-line func-style */
 function *arrayLikeGenerator (obj) {
@@ -17,4 +17,4 @@ const expectArrayLike = obj => {
 };
 
 export const fromArrayLike = obj =>
-  new Stream(arrayLikeGenerator, expectArrayLike(obj));
+  new StreamGenerator(arrayLikeGenerator, expectArrayLike(obj));

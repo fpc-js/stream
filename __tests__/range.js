@@ -1,6 +1,8 @@
-import { range } from '../src';
+import Stream from '../src';
 
 /* eslint-disable no-magic-numbers */
+
+const { range } = Stream;
 
 test('range(1, 0) is an empty stream', () =>
   expect(range(1, 0).toArray()).toEqual([])

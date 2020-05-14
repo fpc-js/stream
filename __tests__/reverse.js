@@ -1,6 +1,8 @@
-import { range } from '../src';
+import Stream from '../src';
 
 /* eslint-disable no-magic-numbers */
+
+const { range } = Stream;
 
 test('<empty stream>.reverse() gives empty array', () =>
   expect(range(1, 0).reverse()).toEqual([])
