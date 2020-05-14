@@ -1,7 +1,7 @@
 {
   "name": "@fpc/stream",
   "description": "Synchronous streams for modern javascript",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Emiliano Bovetti <emiliano.bovetti@gmail.com>",
   "license": "GPL-3.0",
   "keywords": [
