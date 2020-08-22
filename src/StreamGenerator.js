@@ -36,10 +36,6 @@ export class StreamGenerator {
     return reduce(this, expectFunction(fn), initial);
   }
 
-  reverse () {
-    return this.toArray().reverse();
-  }
-
   slice (begin = 0, end = Infinity) {
     expectInteger(begin);
 
@@ -48,7 +44,7 @@ export class StreamGenerator {
     }
 
     if (begin < 0 || end < 0) {
-      return this.toArray().slice(begin, end);
+      throw new TypeError('Negative indexes cannot be used to slice streams');
     }
 
     return new StreamGenerator(sliceGenerator, this, begin, end);

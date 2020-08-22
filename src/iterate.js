@@ -1,18 +1,19 @@
 import { expectFunction } from '@fpc/types';
 import { StreamGenerator } from './StreamGenerator';
 
-/* eslint-disable-next-line func-style */
+/* eslint-disable func-style, no-plusplus */
 function *iterateGenerator (fn, initial) {
-  let acc = initial;
+  let idx = 0;
+  let acc = initial == null ? fn(initial, idx++) : initial;
 
-  for (let idx = 0; true; idx++) {
-    acc = fn(acc, idx);
-
+  while (true) {
     if (acc == null) {
       break;
     } else {
       yield acc;
     }
+
+    acc = fn(acc, idx++);
   }
 }
 

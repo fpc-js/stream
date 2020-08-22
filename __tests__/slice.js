@@ -43,13 +43,13 @@ test('stream.slice() works streams', () => {
   expect(zeroToTen.slice(9, 15).toArray()).toEqual([9, 10]);
 });
 
-test('stream.slice() gives an array when an index is negative', () => {
-  expect(empty.slice(-1, 0)).toEqual([]);
-  expect(empty.slice(0, -1)).toEqual([]);
+test('stream.slice() throws an error when an index is negative', () => {
+  expect(() => empty.slice(-1, 0)).toThrow();
+  expect(() => empty.slice(0, -1)).toThrow();
 
-  expect(zero.slice(0, -1)).toEqual([]);
-  expect(zero.slice(-1, 1)).toEqual([0]);
+  expect(() => zero.slice(0, -1)).toThrow();
+  expect(() => zero.slice(-1, 1)).toThrow();
 
-  expect(zeroOne.slice(-2, 2)).toEqual([0, 1]);
-  expect(zeroOne.slice(0, -1)).toEqual([0]);
+  expect(() => zeroOne.slice(-2, 2)).toThrow();
+  expect(() => zeroOne.slice(0, -1)).toThrow();
 });
