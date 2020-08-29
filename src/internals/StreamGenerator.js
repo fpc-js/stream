@@ -1,5 +1,5 @@
 import { expectFunction, expectInteger } from '@fpc/types';
-import { empty } from './internals';
+import { empty } from './empty';
 import { consume } from './consume';
 import { filterGenerator } from './filterGenerator';
 import { forEachGenerator } from './forEachGenerator';

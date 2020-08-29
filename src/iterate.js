@@ -1,5 +1,5 @@
 import { expectFunction } from '@fpc/types';
-import { StreamGenerator } from './StreamGenerator';
+import { StreamGenerator } from './internals/StreamGenerator';
 
 /* eslint-disable func-style, no-plusplus */
 function *iterateGenerator (fn, initial) {

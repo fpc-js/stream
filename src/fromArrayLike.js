@@ -1,5 +1,5 @@
 import { expectObject, expectInteger } from '@fpc/types';
-import { StreamGenerator } from './StreamGenerator';
+import { StreamGenerator } from './internals/StreamGenerator';
 
 /* eslint-disable-next-line func-style */
 function *arrayLikeGenerator (obj) {

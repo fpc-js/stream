@@ -1,4 +1,4 @@
-import { getIterator } from './internals';
+import { getIterator } from './getIterator';
 
 /* eslint-disable-next-line func-style */
 export function *mapGenerator (iterable, fn) {

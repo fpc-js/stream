@@ -1,15 +1,15 @@
-import { getIterator } from './internals';
+import { getIterator } from './getIterator';
 
 /* eslint-disable-next-line func-style */
-export function *filterGenerator (iterable, fn) {
+export function *sliceGenerator (iterable, begin, end) {
   const iterator = getIterator(iterable);
 
   for (let idx = 0; true; idx++) {
     const { done, value } = iterator.next();
 
-    if (done) {
+    if (done || idx >= end) {
       break;
-    } else if (fn(value, idx, iterable)) {
+    } else if (idx >= begin) {
       yield value;
     }
   }

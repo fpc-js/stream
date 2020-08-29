@@ -1,4 +1,4 @@
-import { getIterator } from './internals';
+import { getIterator } from './getIterator';
 
 export const consume = iterable => {
   const iterator = getIterator(iterable);
