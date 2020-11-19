@@ -51,7 +51,7 @@
     "max-params": ["warn", {"max": 4}],
     "max-statements": ["warn", {"max": 10}],
     "max-statements-per-line": ["warn", {"max": 1}],
-    "no-plusplus": ["error", {"allowForLoopAfterthoughts": true}],
+    "no-plusplus": "off",
     "object-curly-newline": ["error", {"multiline": true}],
     "object-curly-spacing": ["error", "always"],
     "one-var": ["error", {"uninitialized": "always"}],

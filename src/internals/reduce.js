@@ -1,9 +1,10 @@
-import { getIterator } from './getIterator';
 import { empty } from './empty';
+
+/* global Symbol */
 
 /* eslint-disable-next-line max-statements */
 export const reduce = (iterable, fn, initial) => {
-  const iterator = getIterator(iterable);
+  const iterator = iterable[Symbol.iterator]();
 
   let acc;
   let idx = 0;

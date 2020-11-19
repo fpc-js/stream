@@ -1,16 +1,10 @@
-import { getIterator } from './getIterator';
-
 /* eslint-disable-next-line func-style */
 export function *mapGenerator (iterable, fn) {
-  const iterator = getIterator(iterable);
+  let idx = 0;
 
-  for (let idx = 0; true; idx++) {
-    const { done, value } = iterator.next();
+  for (const value of iterable) {
+    yield fn(value, idx, iterable);
 
-    if (done) {
-      break;
-    } else {
-      yield fn(value, idx, iterable);
-    }
+    idx++;
   }
 }
