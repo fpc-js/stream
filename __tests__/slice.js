@@ -1,4 +1,4 @@
-import Stream from '../src';
+import Stream from '../src/index.js';
 
 /* eslint-disable no-magic-numbers */
 

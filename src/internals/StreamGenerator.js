@@ -1,11 +1,11 @@
 import { expectFunction, expectInteger } from '@fpc/types';
-import { empty } from './empty';
-import { consume } from './consume';
-import { filterGenerator } from './filterGenerator';
-import { forEachGenerator } from './forEachGenerator';
-import { mapGenerator } from './mapGenerator';
-import { reduce } from './reduce';
-import { sliceGenerator } from './sliceGenerator';
+import { empty } from './empty.js';
+import { consume } from './consume.js';
+import { filterGenerator } from './filterGenerator.js';
+import { forEachGenerator } from './forEachGenerator.js';
+import { mapGenerator } from './mapGenerator.js';
+import { reduce } from './reduce.js';
+import { sliceGenerator } from './sliceGenerator.js';
 
 /* global Symbol */
 

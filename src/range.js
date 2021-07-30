@@ -1,4 +1,4 @@
-import { StreamGenerator } from './internals/StreamGenerator';
+import { StreamGenerator } from './internals/StreamGenerator.js';
 
 /* eslint-disable-next-line func-style */
 function *rangeGenerator (start, end, step) {

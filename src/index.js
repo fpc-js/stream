@@ -1,7 +1,7 @@
-import { fromArrayLike } from './fromArrayLike';
-import { fromIterable } from './fromIterable';
-import { iterate } from './iterate';
-import { range } from './range';
+import { fromArrayLike } from './fromArrayLike.js';
+import { fromIterable } from './fromIterable.js';
+import { iterate } from './iterate.js';
+import { range } from './range.js';
 
 export default {
   fromArrayLike,

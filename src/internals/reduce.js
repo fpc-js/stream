@@ -1,4 +1,4 @@
-import { empty } from './empty';
+import { empty } from './empty.js';
 
 /* global Symbol */
 

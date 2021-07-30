@@ -1,5 +1,5 @@
 import { expectIterable } from '@fpc/types';
-import { StreamGenerator } from './internals/StreamGenerator';
+import { StreamGenerator } from './internals/StreamGenerator.js';
 
 /* global Symbol */
 
