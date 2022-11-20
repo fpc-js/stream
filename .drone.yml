@@ -51,6 +51,11 @@ steps:
 
   - name: publish
     image: emilianobovetti/fpc-js-builder
+    environment:
+      NPM_TOKEN:
+        from_secret: semantic-release-npm-token
+      GITHUB_TOKEN:
+        from_secret: semantic-release-github-token
     commands:
       - semantic-release
     depends_on:
