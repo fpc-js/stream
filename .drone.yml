@@ -1,0 +1,78 @@
+kind: pipeline
+type: docker
+name: default
+
+volumes:
+  - name: cache
+    host:
+      path: /tmp/cache
+
+steps:
+  - name: restore-cache
+    image: meltwater/drone-cache
+    pull: true
+    settings:
+      backend: 'filesystem'
+      restore: true
+      cache_key: 'volume'
+      archive_format: 'gzip'
+      mount:
+        - 'node_modules'
+    volumes:
+      - name: cache
+        path: /tmp/cache
+
+  - name: dependencies
+    image: node:alpine
+    commands:
+      - yarn
+    depends_on:
+      - restore-cache
+
+  - name: lint
+    image: node:alpine
+    commands:
+      - yarn lint
+    depends_on:
+      - dependencies
+
+  - name: test
+    image: node:alpine
+    environment:
+      COVERALLS_SERVICE_NAME: drone
+      COVERALLS_REPO_TOKEN:
+        from_secret: COVERALLS_REPO_TOKEN
+    commands:
+      - export COVERALLS_GIT_BRANCH="$DRONE_REPO_BRANCH"
+      - npx jest --coverage --coverageReporters=text-lcov | npx coveralls
+    depends_on:
+      - dependencies
+
+  - name: publish
+    image: node:alpine
+    commands:
+      - yarn global add semantic-release @semantic-release/git
+      - npx semantic-release
+    depends_on:
+      - lint
+      - test
+    when:
+      branch: master
+
+  - name: rebuild-cache
+    image: meltwater/drone-cache
+    pull: true
+    settings:
+      backend: 'filesystem'
+      rebuild: true
+      cache_key: 'volume'
+      archive_format: 'gzip'
+      mount:
+        - 'node_modules'
+    volumes:
+      - name: cache
+        path: /tmp/cache
+    depends_on:
+      - lint
+      - test
+      - publish
