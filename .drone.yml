@@ -23,21 +23,21 @@ steps:
         path: /tmp/cache
 
   - name: dependencies
-    image: node:alpine
+    image: emilianobovetti/fpc-js-builder
     commands:
       - yarn
     depends_on:
       - restore-cache
 
   - name: lint
-    image: node:alpine
+    image: emilianobovetti/fpc-js-builder
     commands:
       - yarn lint
     depends_on:
       - dependencies
 
   - name: test
-    image: node:alpine
+    image: emilianobovetti/fpc-js-builder
     environment:
       COVERALLS_SERVICE_NAME: drone
       COVERALLS_REPO_TOKEN:
@@ -49,7 +49,7 @@ steps:
       - dependencies
 
   - name: publish
-    image: node:alpine
+    image: emilianobovetti/fpc-js-builder
     commands:
       - yarn global add semantic-release @semantic-release/git
       - npx semantic-release
