@@ -1,4 +1,5 @@
 import Stream from '../src/index.js';
+import { jest } from '@jest/globals';
 
 /* eslint-disable no-magic-numbers */
 

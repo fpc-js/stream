@@ -39,13 +39,17 @@ steps:
   - name: test
     image: emilianobovetti/fpc-js-builder
     environment:
-      COVERALLS_SERVICE_NAME: drone
-      COVERALLS_REPO_TOKEN:
-        from_secret: coveralls-repo-token
+      CODECOV_TOKEN:
+        from_secret: codecov-token
     commands:
-      - export PATH="$PATH:$DRONE_WORKSPACE/node_modules/.bin"
-      - export COVERALLS_GIT_BRANCH="$DRONE_REPO_BRANCH"
-      - jest --coverage --coverageReporters=text-lcov | coveralls
+      - yarn test --ci --coverage
+      - >
+        codecov -t "$CODECOV_TOKEN" \
+          --branch "$DRONE_BRANCH" \
+          --build "$DRONE_BUILD_NUMBER" \
+          --sha "$DRONE_COMMIT" \
+          --pr "$DRONE_PULL_REQUEST" \
+          --tag "$DRONE_TAG"
     depends_on:
       - dependencies
 
